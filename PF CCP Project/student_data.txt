@@ -1,0 +1,14 @@
+3
+2023-CS-01 Ali Ahmed
+3.85 3
+PF 85 3 4 A
+ICT 88 3 4 A
+Calculus 78 3 3.3 B
+2023-CS-02 Sara Khan
+2.3 2
+English 65 3 2.7 B
+Physics 55 3 1.7 C
+2023-CS-03 Bilal Raza
+1.5 2
+OOP 45 3 0 F
+DLD 48 4 0 F

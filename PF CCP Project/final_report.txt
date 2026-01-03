@@ -1,0 +1,16 @@
+=== CLASS TOPPERS (Ranked by GPA) ===
+Rank      ID             Name                GPA
+1         123            123                 0.00
+
+=== SUBJECT WISE AVERAGES ===
+Subject 1 Average: 12.00
+Subject 2 Average: 12.00
+Subject 3 Average: 12.00
+Subject 4 Average: 12.00
+Subject 5 Average: 12.00
+
+=== PERFORMANCE STATISTICS ===
+Total Students: 1
+Passed: 0
+Failed: 1
+Pass Ratio: 0.00%
