@@ -1,13 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <cstdlib>   // For system("cls")
-#include <limits>    // For numeric_limits
+#include <cstdlib>
+#include <limits>
 
 using namespace std;
 
-// --- CONFIGURATION ---
-const int MAX_STUDENTS = 100; // Maximum number of students allowed
+const int MAX_STUDENTS = 100;
 const string FILENAME = "students.txt";
 
 struct Student {
@@ -16,11 +15,9 @@ struct Student {
     float gpa;
 };
 
-// --- GLOBAL VARIABLES ---
-Student students[MAX_STUDENTS]; // Fixed size array
-int studentCount = 0;           // Tracks how many students we have
+Student students[MAX_STUDENTS]; 
+int studentCount = 0; 
 
-// --- HELPER FUNCTIONS ---
 
 float calculateGPA(float obtained, float total) {
     float percentage = (obtained / total) * 100;
@@ -36,14 +33,12 @@ float calculateGPA(float obtained, float total) {
     return 0.0;
 }
 
-// --- FILE FUNCTIONS ---
 
 void loadData() {
-    studentCount = 0; // Reset count
+    studentCount = 0;
     ifstream inFile(FILENAME);
     if (!inFile) return;
 
-    // Read until file ends or array is full
     while (studentCount < MAX_STUDENTS && inFile >> students[studentCount].id >> students[studentCount].name >> students[studentCount].gpa) {
         studentCount++;
     }
@@ -67,8 +62,6 @@ void appendToFile(const Student& s) {
         outFile.close();
     }
 }
-
-// --- REPORT GENERATION ---
 
 void generateReport() {
     system("cls");
@@ -108,8 +101,6 @@ void generateReport() {
         cout << "Error creating report file.\n";
     }
 }
-
-// --- MENU FUNCTIONS ---
 
 void addStudent() {
     system("cls");
@@ -166,9 +157,8 @@ void addStudent() {
 
     s.gpa = calculateGPA(totalObtained, 500.0);
 
-    // Add to Array
     students[studentCount] = s;
-    studentCount++; // Increase count
+    studentCount++;
 
     appendToFile(s);
 
@@ -183,17 +173,14 @@ void rankStudents() {
         return;
     }
 
-    // Create a temporary array to sort (so we don't mess up the original order)
     Student temp[MAX_STUDENTS];
     for (int i = 0; i < studentCount; i++) {
         temp[i] = students[i];
     }
 
-    // Bubble Sort (Descending Order by GPA)
     for (int i = 0; i < studentCount - 1; i++) {
         for (int j = 0; j < studentCount - i - 1; j++) {
             if (temp[j].gpa < temp[j + 1].gpa) {
-                // Swap
                 Student t = temp[j];
                 temp[j] = temp[j + 1];
                 temp[j + 1] = t;
@@ -308,11 +295,10 @@ void deleteStudent() {
     bool found = false;
     for (int i = 0; i < studentCount; i++) {
         if (students[i].id == deleteId) {
-            // To delete from array, we shift everything after it to the left
             for (int j = i; j < studentCount - 1; j++) {
                 students[j] = students[j + 1];
             }
-            studentCount--; // Reduce count
+            studentCount--;
 
             rewriteFile();
             cout << "\nDeleted successfully.\n";
