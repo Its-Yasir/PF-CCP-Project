@@ -188,6 +188,7 @@ void rankStudents() {
         }
     }
 
+
     cout << "\n--- STUDENT RANKINGS (By GPA) ---\n";
     cout << "Rank\tRoll No\t\tGPA\tName\n";
     cout << "------------------------------------------------\n";
